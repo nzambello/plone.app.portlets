@@ -2,10 +2,10 @@
       xmlns:tal="http://xml.zope.org/namespaces/tal"
       xmlns:i18n="http://xml.zope.org/namespaces/i18n"
       tal:omit-tag="">
-<div class="portlet portletRecent"
+<div class="portlet portletRecent panel panel-default"
     i18n:domain="plone">
 
-    <header class="portletHeader">
+    <header class="portletHeader panel-heading">
         <span class="portletTopLeft"></span>
         <a href="#"
             tal:attributes="href view/recently_modified_link"
@@ -14,7 +14,7 @@
         <span class="portletTopRight"></span>
     </header>
 
-    <ul class="portletContent"
+    <ul class="portletContent list-group"
         tal:condition="view/recent_items">
     <tal:items tal:define="plone_view context/@@plone;
                            getIcon nocall:plone_view/getIcon;
@@ -28,7 +28,7 @@
                         item_wf_state obj/review_state;
                         item_wf_state_class python:'state-' + normalizeString(item_wf_state);
                         item_class python:'contenttype-' + normalizeString(obj.portal_type);"
-            tal:attributes="class python:oddrow and  'portletItem even' or 'portletItem odd'">
+            tal:attributes="class python:oddrow and  'portletItem list-group-item even' or 'portletItem list-group-item odd'">
             <a href=""
                 tal:attributes="href string:${obj/getURL}/view;
                                 title obj/Description;
@@ -51,7 +51,7 @@
         No items changed yet.
     </div>
 
-    <footer class="portletFooter">
+    <footer class="portletFooter panel-footer">
         <a href="#"
            class="tile"
            tal:attributes="href view/recently_modified_link"
