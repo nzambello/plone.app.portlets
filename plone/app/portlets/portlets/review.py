@@ -85,7 +85,8 @@ class Renderer(base.Renderer):
                 review_state=review_state,
                 review_state_class='state-%s ' % norm(review_state),
                 mod_date=toLocalizedTime(obj.ModificationDate()),
-                hasImage = hasImage,                    
+                hasImage = hasImage,
+                images = obj.restrictedTraverse('@@images')
             ))
         return items
 
